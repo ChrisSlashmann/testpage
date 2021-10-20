@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Salt - Device Authentication</title>
+</head>
+<body>
+  <h1 class="visually-hidden">Salt</h1>
+
+  <header class="header">
+    <div class="container header-con">
+      <img class="header__logo" src="img/Salt.png" alt="Logo">
+
+      <button class="header__burger" aria-label="Открыть меню"></button>
+
+      <nav class="header__nav">
+        <button class="header__nav_close" aria-label="Закрыть меню"></button>
+
+        <ul class="header__list">
+          <li class="header__list_item">
+            <a class="header__list_link active" href="#home">HOME</a>
+            <!-- Вместо класса active для соответствия макету  -->
+          </li>
+          <li class="header__list_item">
+            <a class="header__list_link" href="#products">PRODUCTS</a>
+          </li>
+          <li class="header__list_item">
+            <a class="header__list_link" href="#services">SERVICES</a>
+          </li>
+          <li class="header__list_item">
+            <a class="header__list_link" href="#resources">RESOURCES</a>
+          </li>
+          <li class="header__list_item">
+            <a class="header__list_link" href="#about">ABOUT</a>
+          </li>
+          <li class="header__list_item">
+            <a class="header__list_link" href="#contact">CONTACT US</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero__home">
+        <div class="hero__info">
+          <h2 class="hero__info_title">
+            Device Authentication
+          </h2>
+  
+          <p class="hero__info_text">
+            SALT Group is a world leader in authentication and security. We have <br>
+            a range of services to improve user authentication. <br>
+            Discover the possibilities with SALT.
+          </p>
+  
+          <a class="hero__info_start" href="#services">
+            GET STARTED
+          </a>
+        </div>
+            
+        <!-- <div class="hero__slider">
+            
+        </div> -->
+      </div>
+
+      <div class="container hero__show-more">
+        <span class="hero__show-more_text">FIND OUT MORE</span>
+        <a class="hero__show-more_link" href="#services">
+          <img class="hero__show-more_img" src="img/Union.svg" alt="Show more">
+        </a>
+      </div>
+      
+      <div class="container hero__stats">
+        <ul class="hero__stats_list">
+          <li class="hero__stats_item">
+            <h3 class="hero__stats_title">
+              126,300
+            </h3>
+            <p class="hero__stats_text">
+              Identity Theft Cases Reported in Australia
+            </p>
+          </li>
+
+          <li class="hero__stats_item">
+            <h3 class="hero__stats_title">
+              $20.1bn
+            </h3>
+            <p class="hero__stats_text">
+              Online Transactions per annum by Australians
+            </p>
+          </li>
+
+          <li class="hero__stats_item">
+            <h3 class="hero__stats_title" id="hero__stats_title-3">
+              45,511
+            </h3>
+            <p class="hero__stats_text">
+              Online Fraud Cases Reported in Australia
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container services-con">
+        <h2 class="services__title">
+          What We Do
+        </h2>
+
+        <ul class="services__list"> 
+          <li class="services__list_item" id="service1">
+            <h4 class="services__list_title">
+              <a class="services__list_link" href="">
+                Device Authentication
+              </a>
+            </h4>
+
+            <p class="services__list_text">
+              Hardware-based device fingerprinting resilient to cloning, malware and device 
+              jailbreak/root. Hardware-level control over the displayed UI independent of 
+              the device operating system. Hardware-level data protection.
+            </p>
+          </li>
+
+          <li class="services__list_item" id="service2">
+            <h4 class="services__list_title">
+              <a class="services__list_link" href="">
+                User Authentication
+              </a>
+            </h4>
+            
+            <p class="services__list_text">
+              Verify the identity of users for access control with contemporary biometric 
+              connected MFA security tokens.
+            </p>
+          </li>
+
+          <li class="services__list_item" id="service3">
+            <h4 class="services__list_title">
+              <a class="services__list_link" href="">
+                Transaction Authentication
+              </a>
+            </h4>
+            
+            <p class="services__list_text">
+              High assurance out-of-band authentication of high impact transactions and 
+              instructions initiated through electronic service delivery channels. Audit 
+              trail of verification for non-repudiation. Fraud protection against 
+              man-in-the-middle and browser malware.
+            </p>
+          </li>
+
+          <li class="services__list_item" id="service4">
+            <h4 class="services__list_title">
+              <a class="services__list_link" href="">
+                Contemporary authentication methods
+              </a>
+            </h4>
+            
+            <p class="services__list_text">
+              Echidna authentication server to enable adaptive risk-based approach to 
+              security through a range of methods for different levels of authentication 
+              assurance from SMS OTPs, Challenge/Response, to more contemporary QR code 
+              signing and advanced connected mobile security tokens capable of transaction 
+              signatures with dynamic linking of the transaction context and addition of PIN, 
+              Fingerprint and other biometrics.
+            </p>
+          </li>
+
+          <li class="services__list_item" id="service5">
+            <h4 class="services__list_title">
+              <a class="services__list_link" href="">
+                HSM Solutions
+              </a>
+            </h4>
+            
+            <p class="services__list_text">
+              Reseller of Thales nShield HSMs with professional services and subject matter 
+              expertise in HSMs, key ceremony procedures, and SEE code development.
+            </p>
+          </li>
+
+          <li class="services__list_item" id="service6">
+            <h4 class="services__list_title">
+              <a class="services__list_link" href="">
+                Cloud & IoT Security
+              </a>
+            </h4>
+           
+            <p class="services__list_text">
+              Secure the identity and access of users, devices and Internet of Things 
+              connecting into the cloud. Support cloud adoption and migration of 
+              applications and data into private and public clouds.
+            </p>
+          </li>
+        </ul> 
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="container products-con">
+        <div class="products__desc">
+          <h3 class="products__desc_title">
+            Product Spotlight
+          </h3>
+          <p class="products__desc_text">
+            Salt mSign Connected Token is a contemporary mobile security 2FA 
+            token for authentication of user identity and verification of 
+            transactions independent of the delivery channel that initiated 
+            the request.
+          </p>
+          <a class="products__desc_link" id="more-info-1" href="">
+            MORE INFO
+          </a>
+        </div>
+
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-105d8084-8f46-474f-b6f9-717a38ab392c products__demo"></div>
+
+        <a class="products__desc_link" id="more-info-2" href="">
+          MORE INFO
+        </a>
+      </div>
+    </section>
+
+    <section class="get-started visually-hidden">
+      <div class="container get-started-con">
+        <h3 class="get-started__title">
+          Ready to get started?
+        </h3>
+
+        <button class="get-started__btn">
+          CONTACT US
+        </button>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-con">
+        <h3 class="contact__title">
+          Ready<br> to get started?
+        </h3>
+
+        <form class="contact__form" action="POST">
+          <h4 class="contact__form_title">
+            Contact us
+          </h4>
+
+          <div class="contact__form_fullname">
+            <div class="contact__form_pair">
+              <label class="form__label" for="first-name">First Name</label>
+              <input class="form__input" id="first-name" type="text" placeholder="First Name">
+            </div>
+
+            <div class="contact__form_pair">
+              <label class="form__label" for="last-name">Last Name</label>
+              <input class="form__input" id="last-name" type="text" placeholder="Last Name">
+            </div>
+          </div>
+
+          <div class="contact__form_pair">
+            <label class="form__label" for="email">Email Address</label>
+            <input class="form__input" id="email" type="email" placeholder="Email Address">
+          </div>
+
+          <label class="form__label" for="msg" id="msg-label">Your message</label>
+          <textarea class="form__textarea" id="msg" placeholder="Textarea"></textarea>
+          
+          <button class="contact__form_btn">
+            SEND
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="unknown"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-con" id="resources">
+      <div class="footer__twi" id="twitter-dev">
+        <a class="twitter-timeline" data-width="299" data-height="295" data-theme="light" href="https://twitter.com/saltgroup?ref_src=twsrc%5Etfw">
+          Tweets by saltgroup
+        </a>
+      </div>
+
+      <nav class="footer__navigation">
+        <h4 class="footer__navigation_title">
+          Navigation
+        </h4>
+
+        <ul class="footer__navigation_list">
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Home
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Products
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Services
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Resources
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              About
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Contact us
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="footer__links">
+        <h4 class="footer__navigation_title">
+          Links
+        </h4>
+
+        <ul class="footer__navigation_list">
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Disclaimer
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Legal
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Environment Policy
+            </a>
+          </li>
+
+          <li class="footer__navigation_item">
+            <a class="footer__navigation_link" href="">
+              Privacy
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="footer__sales">
+        <h4 class="footer__navigation_title">
+          contact sales
+        </h4>
+
+        <p class="footer__sales_text">
+          PHONE:
+          <a class="footer__sales_link" href="tel:+61396144416">
+            +61 3 9614 4416
+          </a>
+        </p>
+
+        <p class="footer__sales_text">
+          EMAIL: 
+          <a class="footer__sales_link" href="mailto:sales@saltgroup.com.au">
+            sales@saltgroup.com.au
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer__copyright">
+      <p class="footer__copyright_text">
+        © 2017 SALT GROUP
+      </p>
+      <div class="footer__copyright_polygon"></div>
+      <p class="footer__copyright_text">
+        ALL RIGHTS RESERVED. WEBSITE BY DORNE CREATIVE.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
