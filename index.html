@@ -19,7 +19,7 @@
       <button class="header__burger" aria-label="Открыть меню"></button>
 
       <nav class="header__nav">
-        <button class="header__nav_close" aria-label="Закрыть меню"></button>
+        <button class="header__nav_close visually-hidden" aria-label="Закрыть меню"></button>
 
         <ul class="header__list">
           <li class="header__list_item">
@@ -54,11 +54,9 @@
             Device Authentication
           </h2>
   
-          <p class="hero__info_text">
-            SALT Group is a world leader in authentication and security. We have <br>
-            a range of services to improve user authentication. <br>
-            Discover the possibilities with SALT.
-          </p>
+          <p class="hero__info_text">SALT Group is a world leader in authen&shy;tication and security. We have 
+a range of services to improve user authentication.</p>
+          <p class="hero__info_text">Discover the possibilities with SALT.</p>
   
           <a class="hero__info_start" href="#services">
             GET STARTED
@@ -245,31 +243,31 @@
 
     <section class="contact" id="contact">
       <div class="container contact-con">
-        <h3 class="contact__title">
-          Ready<br> to get started?
+        <h3 class="contact__title">Ready 
+to get started?
         </h3>
 
         <form class="contact__form" action="POST">
           <h4 class="contact__form_title">
             Contact us
           </h4>
-
+          
           <div class="contact__form_fullname">
-            <div class="contact__form_pair">
+            <fieldset class="contact__form_pair">
               <label class="form__label" for="first-name">First Name</label>
               <input class="form__input" id="first-name" type="text" placeholder="First Name">
-            </div>
+            </fieldset>
 
-            <div class="contact__form_pair">
+            <fieldset class="contact__form_pair contact__form_last-name">
               <label class="form__label" for="last-name">Last Name</label>
               <input class="form__input" id="last-name" type="text" placeholder="Last Name">
-            </div>
+            </fieldset>
           </div>
 
-          <div class="contact__form_pair">
+          <fieldset class="contact__form_pair">
             <label class="form__label" for="email">Email Address</label>
             <input class="form__input" id="email" type="email" placeholder="Email Address">
-          </div>
+          </fieldset>
 
           <label class="form__label" for="msg" id="msg-label">Your message</label>
           <textarea class="form__textarea" id="msg" placeholder="Textarea"></textarea>
@@ -373,19 +371,21 @@
           contact sales
         </h4>
 
-        <p class="footer__sales_text">
-          PHONE:
-          <a class="footer__sales_link" href="tel:+61396144416">
-            +61 3 9614 4416
-          </a>
-        </p>
-
-        <p class="footer__sales_text">
-          EMAIL: 
-          <a class="footer__sales_link" href="mailto:sales@saltgroup.com.au">
-            sales@saltgroup.com.au
-          </a>
-        </p>
+        <div class="footer__sales_contacts">
+          <p class="footer__sales_text">
+            PHONE:
+            <a class="footer__sales_link" href="tel:+61396144416">
+              +61 3 9614 4416
+            </a>
+          </p>
+  
+          <p class="footer__sales_text">
+            EMAIL: 
+            <a class="footer__sales_link" href="mailto:sales@saltgroup.com.au">
+              sales@saltgroup.com.au
+            </a>
+          </p>
+        </div>
       </div>
     </div>
 
