@@ -1,0 +1,258 @@
+'use strict'
+
+document.addEventListener('DOMContentLoaded', actions);
+
+function actions() {
+  const Burger = document.getElementById('burger');
+  const Menu = document.getElementById('menu');
+  const Close = document.getElementById('menu_close');
+  
+  class GraphModal {
+    constructor(options) {
+      let defaultOptions = {
+        isOpen: ()=>{},
+        isClose: ()=>{},
+      }
+      this.options = Object.assign(defaultOptions, options);
+      this.modal = document.querySelector('.modal');
+      this.speed = 300;
+      this.animation = 'fade';
+      this._reOpen = false;
+      this._nextContainer = false;
+      this.modalContainer = false;
+      this.isOpen = false;
+      this.previousActiveElement = false;
+      this._focusElements = [
+        'a[href]',
+        'input',
+        'select',
+        'textarea',
+        'button',
+        'iframe',
+        '[contenteditable]',
+        '[tabindex]:not([tabindex^="-"])'
+      ];
+      this._fixBlocks = document.querySelectorAll('.fix-block');
+      this.events();
+    }
+
+    events() {
+      if (this.modal) {
+        document.addEventListener('click', function(e) {
+          const clickedElement = e.target.closest(`[data-graph-path]`);
+          if (clickedElement) {
+            let target = clickedElement.dataset.graphPath;
+            let animation = clickedElement.dataset.graphAnimation;
+            let speed =  clickedElement.dataset.graphSpeed;
+            this.animation = animation ? animation : 'fade';
+            this.speed = speed ? parseInt(speed) : 300;
+            this._nextContainer = document.querySelector(`[data-graph-target="${target}"]`); 
+            this.open();
+            return;
+          }
+
+          if (e.target.closest('.modal__close')) {
+            this.close();
+            return;
+          }
+        }.bind(this));
+
+        window.addEventListener('keydown', function(e) {
+          if (e.keyCode == 27 && this.isOpen) {
+            this.close();
+          }
+
+          if (e.which == 9 && this.isOpen) {
+            this.focusCatch(e);
+            return;
+          }
+        }.bind(this));
+
+        this.modal.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('modal__container') && !e.target.closest('.modal__container') && this.isOpen) {
+            this.close();
+          }
+        }.bind(this));
+      }
+      
+    }
+
+    open(selector) {
+      this.previousActiveElement = document.activeElement;
+
+      if (this.isOpen) {
+        this.reOpen = true;
+        this.close();
+        return;
+      }
+
+      this.modalContainer = this._nextContainer;
+
+      if (selector) {
+        this.modalContainer = document.querySelector(`[data-graph-target="${selector}"]`);
+      }
+
+      this.modal.style.setProperty('--transition-time', `${this.speed / 1000}s`);
+      this.modal.classList.add('is-open');
+      this.disableScroll();
+      
+      this.modalContainer.classList.add('modal-open');
+      this.modalContainer.classList.add(this.animation);
+      
+      setTimeout(() => {
+        this.options.isOpen(this);
+        this.modalContainer.classList.add('animate-open');
+        this.isOpen = true;
+        this.focusTrap();
+      }, this.speed);
+    }
+    
+    close() {
+      if (this.modalContainer) {
+        this.modalContainer.classList.remove('animate-open');
+        this.modalContainer.classList.remove(this.animation);
+        this.modal.classList.remove('is-open');
+        this.modalContainer.classList.remove('modal-open');
+        
+        this.enableScroll();
+        this.options.isClose(this);
+        this.isOpen = false;
+        this.focusTrap();
+
+        if (this.reOpen) {
+          this.reOpen = false;
+          this.open();
+        }
+      }
+    }
+
+    focusCatch(e) {
+      const nodes = this.modalContainer.querySelectorAll(this._focusElements);
+      const nodesArray = Array.prototype.slice.call(nodes);
+      const focusedItemIndex = nodesArray.indexOf(document.activeElement)
+      if (e.shiftKey && focusedItemIndex === 0) {
+        nodesArray[nodesArray.length - 1].focus();
+        e.preventDefault();
+      }
+      if (!e.shiftKey && focusedItemIndex === nodesArray.length - 1) {
+        nodesArray[0].focus();
+        e.preventDefault();
+      }
+    }
+
+    focusTrap() {
+      const nodes = this.modalContainer.querySelectorAll(this._focusElements);
+      if (this.isOpen) {
+        if (nodes.length) nodes[0].focus();
+      } else {
+        this.previousActiveElement.focus();
+      }
+    }
+
+    disableScroll() {
+      let pagePosition = window.scrollY;
+      this.lockPadding();
+      document.body.classList.add('disable-scroll');
+      document.body.dataset.position = pagePosition;
+      document.body.style.top = -pagePosition + 'px';
+    }
+
+    enableScroll() {
+      let pagePosition = parseInt(document.body.dataset.position, 10);
+      this.unlockPadding();
+      document.body.style.top = 'auto';
+      document.body.classList.remove('disable-scroll');
+      window.scroll({
+        top: pagePosition,
+        left: 0
+      });
+      document.body.removeAttribute('data-position');
+    }
+
+    lockPadding() {
+      let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+      this._fixBlocks.forEach((el) => {
+        el.style.paddingRight = paddingOffset;
+      });
+      document.body.style.paddingRight = paddingOffset;
+    }
+
+    unlockPadding() {
+      this._fixBlocks.forEach((el) => {
+        el.style.paddingRight = '0px';
+      });
+      document.body.style.paddingRight = '0px';
+    }
+  };
+
+  Burger.addEventListener('click', () => {
+    Burger.classList.add('hidden');
+    Menu.classList.remove('hidden');
+    Close.classList.remove('hidden');
+    new GraphModal().open('modal');
+  });
+
+  Close.addEventListener('click', () => {
+    Close.classList.add('hidden');
+    Menu.classList.add('hidden');
+    Burger.classList.remove('hidden');
+    new GraphModal().close();
+  });
+
+
+  // Get started
+
+  const GetStarted = document.getElementById('get-started');
+  const ContactBtn = document.getElementById('contact-button');
+  const Contact = document.getElementById('contact');
+
+  ContactBtn.addEventListener('click', () => {
+    GetStarted.classList.add('visually-hidden');
+    Contact.classList.remove('visually-hidden');
+  })
+
+
+  // Validator
+
+   new JustValidate('.contact__form', {
+    colorWrong: '#202020',
+    rules: {
+      firstname: {
+        required: true,
+        minLength: 2,
+        maxLength: 20,
+      },
+
+      lastname: {
+        required: true,
+        minLength: 1,
+        maxLength: 25,
+      },
+
+      email: {
+        required: true,
+        email: true,
+      }
+      },
+    messages: {
+        firstname: {
+          minLength: 'Недопустимый формат',
+          maxLength: 'Это поле должно содержать максимум 20 символов',
+          required: 'Это поле является обязательным'
+        },
+        lastname: {
+          minLength: 'Недопустимый формат',
+          maxLength: 'Это поле должно содержать максимум 25 символов',
+          required: 'Это поле является обязательным'
+        },
+        email: {
+          email: 'Недопустимый формат',
+          required: 'Это поле является обязательным'
+        }
+
+    },
+    tooltip: {
+      fadeOutTime: 20000 
+    }
+   });
+}

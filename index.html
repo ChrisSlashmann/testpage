@@ -2,11 +2,23 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <link rel="preload" href="fonts/proximanova-bold.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/proximanova-bold.woff" as="font" crossorigin="">
+  <link rel="preload" href="fonts/proximanova-regular.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/proximanova-regular.woff" as="font" crossorigin="">
+  <link rel="preload" href="fonts//proximanova-semibold.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts//proximanova-semibold.woff" as="font" crossorigin="">
+  <link rel="preload" href="fonts//raleway-thin.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts//raleway-thin.woff" as="font" crossorigin="">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/justValidateTooltip.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script defer async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script defer src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script defer src="js/just-validate.min.js"></script>
+  <script defer src="js/script.js"></script>
   <title>Salt - Device Authentication</title>
 </head>
 <body>
@@ -16,61 +28,91 @@
     <div class="container header-con">
       <img class="header__logo" src="img/Salt.png" alt="Logo">
 
-      <button class="header__burger" aria-label="Открыть меню"></button>
+      <button class="header__burger" id="burger" aria-label="Open the menu"></button>
 
-      <nav class="header__nav">
-        <button class="header__nav_close visually-hidden" aria-label="Закрыть меню"></button>
-
-        <ul class="header__list">
-          <li class="header__list_item">
-            <a class="header__list_link active" href="#home">HOME</a>
-            <!-- Вместо класса active для соответствия макету  -->
-          </li>
-          <li class="header__list_item">
-            <a class="header__list_link" href="#products">PRODUCTS</a>
-          </li>
-          <li class="header__list_item">
-            <a class="header__list_link" href="#services">SERVICES</a>
-          </li>
-          <li class="header__list_item">
-            <a class="header__list_link" href="#resources">RESOURCES</a>
-          </li>
-          <li class="header__list_item">
-            <a class="header__list_link" href="#about">ABOUT</a>
-          </li>
-          <li class="header__list_item">
-            <a class="header__list_link" href="#contact">CONTACT US</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="modal" id="modal">
+        <nav class="header__nav modal__container" id="menu" role="dialog" aria-modal="true" data-graph-target="modal">
+          <button class="header__nav_close modal__close hidden" id="menu_close" aria-label="Close the menu"></button>
+  
+          <ul class="header__list modal-content">
+            <li class="header__list_item">
+              <a class="header__list_link active" href="#home" tabindex="0">HOME</a>
+            </li>
+            <li class="header__list_item">
+              <a class="header__list_link" href="#products" tabindex="0">PRODUCTS</a>
+            </li>
+            <li class="header__list_item">
+              <a class="header__list_link" href="#services" tabindex="0">SERVICES</a>
+            </li>
+            <li class="header__list_item">
+              <a class="header__list_link" href="#resources" tabindex="0">RESOURCES</a>
+            </li>
+            <li class="header__list_item">
+              <a class="header__list_link" href="#about" tabindex="0">ABOUT</a>
+            </li>
+            <li class="header__list_item">
+              <a class="header__list_link" href="#get-started" tabindex="0">CONTACT US</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero__home">
-        <div class="hero__info">
-          <h2 class="hero__info_title">
-            Device Authentication
-          </h2>
-  
-          <p class="hero__info_text">SALT Group is a world leader in authen&shy;tication and security. We have 
+      <div class="container hero__home swiper" id="swiper" tabindex="-1">
+        <div class="swiper-wrapper">
+          <div class="hero__info swiper-slide slide1" tabindex="-1">
+            <h2 class="hero__info_title">
+              Device Authentication
+            </h2>
+    
+            <p class="hero__info_text">SALT Group is a world leader in authen&shy;tication and security. We have 
 a range of services to improve user authentication.</p>
-          <p class="hero__info_text">Discover the possibilities with SALT.</p>
+            <p class="hero__info_text">Discover the possibilities with SALT.</p>
+    
+            <a class="hero__info_start" href="#services" tabindex="-1">
+              GET STARTED
+            </a>
+          </div>
   
-          <a class="hero__info_start" href="#services">
-            GET STARTED
-          </a>
+          <div class="hero__info swiper-slide slide2" tabindex="-1">
+            <h2 class="hero__info_title">
+              Device Authentication
+            </h2>
+    
+            <p class="hero__info_text">SALT Group is a world leader in authen&shy;tication and security. We have 
+a range of services to improve user authentication.</p>
+            <p class="hero__info_text">Discover the possibilities with SALT.</p>
+    
+            <a class="hero__info_start" href="#services" tabindex="-1">
+              GET STARTED
+            </a>
+          </div>
+  
+          <div class="hero__info swiper-slide slide3" tabindex="-1">
+            <h2 class="hero__info_title">
+              Device Authentication
+            </h2>
+    
+            <p class="hero__info_text">SALT Group is a world leader in authen&shy;tication and security. We have 
+a range of services to improve user authentication.</p>
+            <p class="hero__info_text">Discover the possibilities with SALT.</p>
+    
+            <a class="hero__info_start" href="#services" tabindex="-1">
+              GET STARTED
+            </a>
+          </div>
         </div>
-            
-        <!-- <div class="hero__slider">
-            
-        </div> -->
+                    
+        <div class="swiper-pagination"></div>
+        <script defer src="js/swiper init.js"></script>
       </div>
 
       <div class="container hero__show-more">
         <span class="hero__show-more_text">FIND OUT MORE</span>
-        <a class="hero__show-more_link" href="#services">
+        <a class="hero__show-more_link" href="#services" aria-label="show more">
           <img class="hero__show-more_img" src="img/Union.svg" alt="Show more">
         </a>
       </div>
@@ -206,10 +248,10 @@ a range of services to improve user authentication.</p>
     <section class="products" id="products">
       <div class="container products-con">
         <div class="products__desc">
-          <h3 class="products__desc_title">
+          <h3 class="products__desc_title" tabindex="0">
             Product Spotlight
           </h3>
-          <p class="products__desc_text">
+          <p class="products__desc_text" tabindex="0">
             Salt mSign Connected Token is a contemporary mobile security 2FA 
             token for authentication of user identity and verification of 
             transactions independent of the delivery channel that initiated 
@@ -221,27 +263,27 @@ a range of services to improve user authentication.</p>
         </div>
 
         <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-        <div class="elfsight-app-105d8084-8f46-474f-b6f9-717a38ab392c products__demo"></div>
+        <div class="elfsight-app-105d8084-8f46-474f-b6f9-717a38ab392c products__demo" tabindex="-1"></div>
 
-        <a class="products__desc_link" id="more-info-2" href="">
+        <a class="products__desc_link" id="more-info-2" href="" tabindex="0">
           MORE INFO
         </a>
       </div>
     </section>
 
-    <section class="get-started visually-hidden">
+    <section class="get-started" id="get-started">
       <div class="container get-started-con">
         <h3 class="get-started__title">
           Ready to get started?
         </h3>
 
-        <button class="get-started__btn">
+        <button class="get-started__btn" id="contact-button">
           CONTACT US
         </button>
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact visually-hidden" id="contact" role="alert">
       <div class="container contact-con">
         <h3 class="contact__title">Ready 
 to get started?
@@ -253,20 +295,20 @@ to get started?
           </h4>
           
           <div class="contact__form_fullname">
-            <fieldset class="contact__form_pair">
+            <fieldset class="contact__form_pair just-validate-tooltip-container">
               <label class="form__label" for="first-name">First Name</label>
-              <input class="form__input" id="first-name" type="text" placeholder="First Name">
+              <input class="form__input" id="first-name" type="text" data-validate-field="firstname" required placeholder="First Name">
             </fieldset>
 
-            <fieldset class="contact__form_pair contact__form_last-name">
+            <fieldset class="contact__form_pair contact__form_last-name just-validate-tooltip-container">
               <label class="form__label" for="last-name">Last Name</label>
-              <input class="form__input" id="last-name" type="text" placeholder="Last Name">
+              <input class="form__input" id="last-name" type="text" data-validate-field="lastname" required placeholder="Last Name">
             </fieldset>
           </div>
 
-          <fieldset class="contact__form_pair">
+          <fieldset class="contact__form_pair just-validate-tooltip-container">
             <label class="form__label" for="email">Email Address</label>
-            <input class="form__input" id="email" type="email" placeholder="Email Address">
+            <input class="form__input" id="email" type="email" data-validate-field="email" required placeholder="Email Address">
           </fieldset>
 
           <label class="form__label" for="msg" id="msg-label">Your message</label>
@@ -284,14 +326,14 @@ to get started?
 
   <footer class="footer">
     <div class="container footer-con" id="resources">
-      <div class="footer__twi" id="twitter-dev">
-        <a class="twitter-timeline" data-width="299" data-height="295" data-theme="light" href="https://twitter.com/saltgroup?ref_src=twsrc%5Etfw">
+      <div class="footer__twi" id="twitter-dev" tabindex="-10">
+        <a class="twitter-timeline" data-width="299" data-height="295" data-theme="light" href="https://twitter.com/saltgroup?ref_src=twsrc%5Etfw" tabindex="-10">
           Tweets by saltgroup
         </a>
       </div>
 
       <nav class="footer__navigation">
-        <h4 class="footer__navigation_title">
+        <h4 class="footer__navigation_title" tabindex="0">
           Navigation
         </h4>
 
@@ -335,7 +377,7 @@ to get started?
       </nav>
 
       <nav class="footer__links">
-        <h4 class="footer__navigation_title">
+        <h4 class="footer__navigation_title" tabindex="0">
           Links
         </h4>
 
@@ -367,21 +409,21 @@ to get started?
       </nav>
 
       <div class="footer__sales">
-        <h4 class="footer__navigation_title">
+        <h4 class="footer__navigation_title" tabindex="0">
           contact sales
         </h4>
 
         <div class="footer__sales_contacts">
           <p class="footer__sales_text">
             PHONE:
-            <a class="footer__sales_link" href="tel:+61396144416">
+            <a class="footer__sales_link" href="tel:+61396144416" aria-label="Sales department phone">
               +61 3 9614 4416
             </a>
           </p>
   
           <p class="footer__sales_text">
             EMAIL: 
-            <a class="footer__sales_link" href="mailto:sales@saltgroup.com.au">
+            <a class="footer__sales_link" href="mailto:sales@saltgroup.com.au"  aria-label="Sales department email">
               sales@saltgroup.com.au
             </a>
           </p>

@@ -1,3 +1,18 @@
+# Файлы и папки операционной системы
+.DS_Store
+Thumbs.db
+
+# Файлы редактора
+.idea
+*.sublime*
+.vscode
+
+# Вспомогательные файлы и папки
+node_modules/
+test/
 375.jpg
 1600.jpg
-.gitattributes
+
+# Папка с собранными файлами проекта
+build/
+dev/
