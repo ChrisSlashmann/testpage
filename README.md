@@ -1,2 +1,4 @@
 # test
- test page with plugins, flexboxes and grids
+Лендинг с флексами, гридами, плагинами swiper.js, twitter, just-validate
+
+Ошибки в валидаторе связаны с подключением средств обеспечения доступности
