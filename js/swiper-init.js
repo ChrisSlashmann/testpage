@@ -13,9 +13,9 @@ const swiper = new Swiper(slider, {
       enabled: true,
       onlyInViewport: true,
     },
-    mousewheel: {
-      sensitivity: 1,
-    },
+    // mousewheel: {
+    //   sensitivity: 1,
+    // },
     
     autoplay: {
       delay: 3000,
@@ -51,3 +51,4 @@ const swiper = new Swiper(slider, {
 });
 
 swiper.allowTouchMove = true;
+swiper.mousewheel.disable();
